@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!-- 启用AspectJ自动代理 -->
+    <aop:aspectj-autoproxy/>
+
+    <!--扫描并注册bean-->
+    <context:component-scan base-package="com.mmdxiaoxin.model"/>
+
+    <!--注册数据库连接类-->
+    <bean id="dbConnection" class="com.mmdxiaoxin.model.DBConnection">
+        <property name="driver" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost/springdemo?characterEncoding=utf8"/>
+        <property name="user" value="root"/>
+        <property name="passwd" value="122600"/>
+    </bean>
+
+</beans>
